@@ -1,0 +1,34 @@
+<div class="empleados">
+    <h2>Empleados</h2>
+    <div class="table-wrapper">
+      <table class="empleados-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th class="acciones">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of empleados">
+            <td>{{ e.nombre }}</td>
+            <td>{{ e.correo }}</td>
+            <td>{{ e.rol }}</td>
+            <td class="acciones">
+              <button class="icon-button editar" title="Editar">
+                🖊️
+              </button>
+              <button class="icon-button ver" title="Ver">
+                👁️
+              </button>
+              <button class="icon-button eliminar" title="Eliminar">
+                🗑️
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

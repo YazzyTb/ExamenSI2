@@ -1,0 +1,32 @@
+<nav class="sidebar-nav">
+    <h2 class="brand">🛒 Smarth Shop</h2>
+    <ul>
+      <li routerLink="/bitacora" routerLinkActive="active">
+        <span class="icon">📋</span> Bitacora
+      </li>
+      <li routerLink="/empleados" routerLinkActive="active">
+        <span class="icon">👨‍💼</span> Empleados
+      </li>
+      <ul class="sublist">
+        <li routerLink="/empleados/roles" routerLinkActive="active">↳ Roles</li>
+        <li routerLink="/empleados/permisos" routerLinkActive="active">↳ Permisos</li>
+      </ul>
+      <li routerLink="/clientes" routerLinkActive="active">
+        <span class="icon">👥</span> Clientes
+      </li>
+      <li routerLink="/inventario" routerLinkActive="active">
+        <span class="icon">📦</span> Inventario
+      </li>
+      <li routerLink="/ventas" routerLinkActive="active">
+        <span class="icon">💸</span> Ventas
+      </li>
+      <li routerLink="/compras" routerLinkActive="active">
+        <span class="icon">🛍️</span> Compras
+      </li>
+      <li routerLink="/facturas" routerLinkActive="active">
+        <span class="icon">🧾</span> Facturas
+      </li>
+    </ul>
+    <div class="logout" (click)="cerrarSesion()" >🔴 Cerrar sesión</div>
+  </nav>
+  

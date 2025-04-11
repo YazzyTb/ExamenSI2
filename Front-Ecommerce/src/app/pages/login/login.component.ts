@@ -19,7 +19,7 @@ export class LoginComponent {
   onSubmit() {
     if (this.email === 'admin@admin.com' && this.password === '1234') {
       alert('¡Inicio de sesión exitoso!');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/bitacora']);
     } else {
       alert('Credenciales inválidas');
     }

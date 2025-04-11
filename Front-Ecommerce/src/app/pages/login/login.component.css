@@ -96,5 +96,24 @@ html, body {
     transform: scale(1.05); 
     transition: transform 0.4s ease-in-out;
   }
+  @media (max-width: 768px) {
+    .login-box {
+      flex-direction: column;
+      width: 90%;
+      height: auto;
+    }
   
+    .login-image {
+      height: 200px;
+    }
+  
+    .login-image img {
+      object-fit: cover;
+      transform: scale(1.02); 
+    }
+  
+    .login-form {
+      padding: 20px;
+    }
+  }
   
