@@ -1,1 +1,22 @@
-<p>permisos works!</p>
+<div class="permisos">
+    <div class="encabezado-permisos">
+      <h2>Permisos disponibles</h2>
+      <a routerLink="/permisos/crear" class="nuevo-permiso">+ Nuevo permiso</a>
+    </div>
+    <table class="permisos-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of permisos">
+          <td>{{ p.id }}</td>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.descripcion }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
