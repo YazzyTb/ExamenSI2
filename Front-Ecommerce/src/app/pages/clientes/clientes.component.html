@@ -1,0 +1,40 @@
+<div class="clientes">
+    <div class="encabezado-clientes">
+      <h2>Clientes</h2>
+      <div class="filtros">
+        <input type="text" placeholder="Buscar por nombre o apellido..." [(ngModel)]="filtro" />
+        <select [(ngModel)]="estado">
+          <option value="todos">Todos</option>
+          <option value="activo">Activos</option>
+          <option value="inactivo">Inactivos</option>
+        </select>
+      </div>
+    </div>
+  
+    <table class="clientes-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Estado</th>
+          <th class="acciones">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of clientesFiltrados">
+          <td>{{ c.nombre }}</td>
+          <td>{{ c.apellido }}</td>
+          <td>
+            <span [ngClass]="{ 'activo': c.estado === 'activo', 'inactivo': c.estado === 'inactivo' }">
+              ● {{ c.estado }}
+            </span>
+          </td>
+          <td class="acciones">
+            <button class="icon-button editar" [routerLink]="['/clientes/editar', c.id]" title="Editar">🖊️</button>
+            <button class="icon-button ver" [routerLink]="['/clientes', c.id]" title="Ver">👁️</button>
+            <button class="icon-button eliminar" (click)="eliminarCliente(c.id)" title="Eliminar">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
