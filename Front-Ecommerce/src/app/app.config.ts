@@ -4,6 +4,9 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { BitacoraComponent } from './pages/bitacora/bitacora.component';
 import { EmpleadosComponent } from './pages/empleados/empleados.component';
 import { RolesComponent } from './pages/roles/roles.component';
+import { RolCrearComponent } from './pages/roles/rolcrear/rolcrear.component';
+import { RolEditarComponent } from './pages/roles/rol-editar/rol-editar.component';
+
 import { PermisosComponent } from './pages/permisos/permisos.component';
 import { CrearPermisoComponent } from './pages/permisos/crear-permiso/crear-permiso.component';
 import { EmpleadoDetalleComponent } from './pages/empleados/empleado-detalle/empleado-detalle.component';
@@ -21,12 +24,15 @@ export const appConfig = {
           { path: '', redirectTo: 'bitacora', pathMatch: 'full' },
           { path: 'bitacora', component: BitacoraComponent },
           { path: 'permisos', component: PermisosComponent },
-          {path: 'permisos/crear',component: CrearPermisoComponent},
+          { path: 'permisos/crear',component: CrearPermisoComponent },
+          { path: 'roles', component: RolesComponent },
+          { path: 'roles/crear',
+            component: RolCrearComponent },
+          { path: 'roles/editar/:id', component: RolEditarComponent },
           { path: 'empleados', component: EmpleadosComponent },
-          { path: 'empleados/roles', component: RolesComponent },
-          {path: 'empleados/crear', component: CrearEmpleadoComponent},
-          {path: 'empleados/:id', component: EmpleadoDetalleComponent},
-          {path: 'empleados/editar/:id', component: EditarComponent}
+          { path: 'empleados/crear', component: CrearEmpleadoComponent },
+          { path: 'empleados/:id', component: EmpleadoDetalleComponent },
+          { path: 'empleados/editar/:id', component: EditarComponent }
         ]
       }
     ])
