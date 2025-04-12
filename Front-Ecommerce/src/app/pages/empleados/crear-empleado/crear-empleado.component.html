@@ -1,0 +1,17 @@
+<div class="crear-empleado">
+    <h2>Registrar Nuevo Empleado</h2>
+    <form (ngSubmit)="crearEmpleado()">
+      <label>Nombre:</label>
+      <input type="text" [(ngModel)]="empleado.nombre" name="nombre" required />
+  
+      <label>Correo:</label>
+      <input type="email" [(ngModel)]="empleado.correo" name="correo" required />
+  
+      <label>Rol:</label>
+      <input type="text" [(ngModel)]="empleado.rol" name="rol" required />
+  
+      <button type="submit">Guardar</button>
+      <button type="button" class="volver" (click)="volver()">Volver</button>
+    </form>
+  </div>
+  

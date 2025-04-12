@@ -2,8 +2,28 @@
     font-family: 'Segoe UI', sans-serif;
   }
   
+  .encabezado-empleados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .nuevo-empleado {
+    background-color: #4a90e2;
+    color: white;
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nuevo-empleado:hover {
+    background-color: #3366cc;
+  }
+  
   .table-wrapper {
-    margin-top: 20px;
     overflow-x: auto;
   }
   
@@ -47,3 +67,4 @@
   .icon-button.editar { color: #4a90e2; }
   .icon-button.ver    { color: #50b96e; }
   .icon-button.eliminar { color: #e25d5d; }
+  

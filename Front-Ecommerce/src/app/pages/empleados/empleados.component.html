@@ -1,5 +1,9 @@
 <div class="empleados">
-    <h2>Empleados</h2>
+    <div class="encabezado-empleados">
+      <h2>Empleados</h2>
+      <a routerLink="/empleados/crear" class="nuevo-empleado">+ Nuevo empleado</a>
+    </div>
+  
     <div class="table-wrapper">
       <table class="empleados-table">
         <thead>
@@ -16,10 +20,10 @@
             <td>{{ e.correo }}</td>
             <td>{{ e.rol }}</td>
             <td class="acciones">
-              <button class="icon-button editar" title="Editar">
+              <button class="icon-button editar" [routerLink]="['/empleados/editar', e.id]" title="Editar">
                 🖊️
               </button>
-              <button class="icon-button ver" title="Ver">
+              <button class="icon-button ver" [routerLink]="['/empleados', e.id]" title="Ver">
                 👁️
               </button>
               <button class="icon-button eliminar" title="Eliminar">
@@ -31,4 +35,3 @@
       </table>
     </div>
   </div>
-  
