@@ -15,6 +15,9 @@ import {CrearEmpleadoComponent } from './pages/empleados/crear-empleado/crear-em
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { ClienteDetallesComponent } from './pages/clientes/cliente-detalles/cliente-detalles.component';
 import { EditarClienteComponent } from './pages/clientes/editar-cliente/editar-cliente.component';
+import { InventarioComponent } from './pages/inventario/inventario.component';
+import { ProductoCrearComponent } from './pages/inventario/producto-crear/producto-crear.component';
+import { EditarProductoComponent } from './pages/inventario/editar-producto/editar-producto.component';
 
 
 export const appConfig = {
@@ -40,6 +43,9 @@ export const appConfig = {
           { path: 'clientes', component: ClientesComponent },
           { path: 'clientes/:id', component: ClienteDetallesComponent },
           { path: 'clientes/editar/:id', component: EditarClienteComponent},
+          { path: 'inventario', component: InventarioComponent },
+          { path: 'inventario/crear', component: ProductoCrearComponent },
+          { path: 'inventario/editar/:id', component: EditarProductoComponent }
         ]
       }
     ])

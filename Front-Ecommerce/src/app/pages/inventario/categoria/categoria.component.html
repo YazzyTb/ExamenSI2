@@ -1,0 +1,11 @@
+<div class="categoria">
+    <h2>Categorías</h2>
+    <form (ngSubmit)="agregarCategoria()">
+      <input [(ngModel)]="nuevaCategoria" name="nombre" placeholder="Nueva categoría" required />
+      <button type="submit">Agregar</button>
+    </form>
+  
+    <ul class="lista">
+      <li *ngFor="let c of categorias">{{ c.nombre }}</li>
+    </ul>
+  </div>

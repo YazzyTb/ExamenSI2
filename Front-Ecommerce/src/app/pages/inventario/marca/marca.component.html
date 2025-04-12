@@ -1,0 +1,11 @@
+<div class="marca">
+    <h2>Marcas</h2>
+    <form (ngSubmit)="agregarMarca()">
+      <input [(ngModel)]="nuevaMarca" name="nombre" placeholder="Nueva marca" required />
+      <button type="submit">Agregar</button>
+    </form>
+  
+    <ul class="lista">
+      <li *ngFor="let m of marcas">{{ m.nombre }}</li>
+    </ul>
+  </div>

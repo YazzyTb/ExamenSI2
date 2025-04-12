@@ -1,22 +1,29 @@
-import { Component } from '@angular/core';
-import { RouterModule,Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { NgIf, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, NgIf, NgClass],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+  @Input() isVisible: boolean = true;
 
-constructor(private router: Router) {}
+  dropdowns: { [key: string]: boolean } = {
+    empleados: false,
+    inventario: false
+  };
 
-  cerrarSesion() {
-    // 🧹 Aquí puedes limpiar el localStorage/token más adelante
-    // localStorage.removeItem('token');
+  constructor(private router: Router) {}
 
-    // Redireccionar a login
+  toggleDropdown(key: string): void {
+    this.dropdowns[key] = !this.dropdowns[key];
+  }
+
+  cerrarSesion(): void {
     this.router.navigate(['/']);
   }
 }

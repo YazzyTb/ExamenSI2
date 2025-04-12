@@ -1,0 +1,43 @@
+.categoria {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .categoria h2 {
+    margin-bottom: 12px;
+  }
+  
+  input {
+    width: calc(100% - 90px);
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #3366cc;
+  }
+  
+  .lista {
+    margin-top: 16px;
+    padding-left: 16px;
+  }
+  
+  .lista li {
+    margin: 4px 0;
+  }
+  
