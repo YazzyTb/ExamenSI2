@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-marca',
@@ -10,6 +11,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './marca.component.css'
 })
 export class MarcaComponent {
+  constructor(private router: Router) {}
+
   marcas = [
     { id: 1, nombre: 'Xiaomi' },
     { id: 2, nombre: 'Samsung' }
@@ -28,5 +31,7 @@ export class MarcaComponent {
     }
   }
 
-
+  volver() {
+    this.router.navigate(['/inventario']);
+  }
 }

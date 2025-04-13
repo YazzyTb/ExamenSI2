@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ClientesComponent {
   filtro = '';
-  estado = 'todos';
+  estadoFiltro = '';
 
   clientes = [
     { id: 1, nombre: 'Carlos', apellido: 'González', telefono: '71234567', nit: '12345678', gmail: 'carlos@gmail.com', estado: 'activo' },
@@ -23,7 +23,7 @@ export class ClientesComponent {
   get clientesFiltrados() {
     return this.clientes.filter(c => {
       const coincideBusqueda = `${c.nombre} ${c.apellido}`.toLowerCase().includes(this.filtro.toLowerCase());
-      const coincideEstado = this.estado === 'todos' || c.estado === this.estado;
+      const coincideEstado = !this.estadoFiltro || c.estado === this.estadoFiltro;
       return coincideBusqueda && coincideEstado;
     });
   }

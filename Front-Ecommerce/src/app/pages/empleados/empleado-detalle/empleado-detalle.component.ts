@@ -14,9 +14,9 @@ export class EmpleadoDetalleComponent {
   empleado: any;
 
   empleadosMock = [
-    { id: 1, nombre: 'Juan Perez', correo: 'juan@correo.com', rol: 'Administrador' },
-    { id: 2, nombre: 'Lucía Ríos', correo: 'lucia@correo.com', rol: 'Cajero' },
-    { id: 3, nombre: 'Carlos López', correo: 'carlos@correo.com', rol: 'Supervisor' }
+    { id: 1, nombre: 'Juan', apellido: 'Perez', correo: 'juan@correo.com', rol: 'Administrador', estado: 'activo' },
+    { id: 2, nombre: 'Lucía', apellido: 'Ríos', correo: 'lucia@correo.com', rol: 'Cajero', estado: 'inactivo' },
+    { id: 3, nombre: 'Carlos', apellido: 'López', correo: 'carlos@correo.com', rol: 'Supervisor', estado: 'activo' }
   ];
 
   constructor(private route: ActivatedRoute) {}
@@ -24,5 +24,9 @@ export class EmpleadoDetalleComponent {
   ngOnInit() {
     this.empleadoId = Number(this.route.snapshot.paramMap.get('id'));
     this.empleado = this.empleadosMock.find(e => e.id === this.empleadoId);
+  }
+
+  volver() {
+    history.back();
   }
 }

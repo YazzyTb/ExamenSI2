@@ -1,70 +1,107 @@
-.empleados {
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .encabezado-empleados {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .nuevo-empleado {
-    background-color: #4a90e2;
-    color: white;
-    padding: 8px 14px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nuevo-empleado:hover {
-    background-color: #3366cc;
-  }
-  
-  .table-wrapper {
-    overflow-x: auto;
-  }
-  
-  .empleados-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fdfdfd;
-    font-size: 15px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-  }
-  
-  .empleados-table th, .empleados-table td {
-    padding: 12px 16px;
-    text-align: left;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .empleados-table thead th {
-    background-color: #e3e3e3;
-    font-weight: bold;
-  }
-  
-  .acciones {
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .icon-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    margin: 0 5px;
-    transition: transform 0.2s;
-  }
-  
-  .icon-button:hover {
-    transform: scale(1.2);
-  }
-  
-  .icon-button.editar { color: #4a90e2; }
-  .icon-button.ver    { color: #50b96e; }
-  .icon-button.eliminar { color: #e25d5d; }
-  
+.empleados-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buscador {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.filtro-select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-agregar {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #22abea;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-agregar:hover {
+  background-color: #07307a;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.tabla th,
+.tabla td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.tabla th {
+  background-color: #f4f4f4;
+}
+
+.activo {
+  color: green;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.inactivo {
+  color: red;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.acciones {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 5px;
+  transition: transform 0.2s;
+}
+
+.icon-button:hover {
+  transform: scale(1.2);
+}
+
+.icon-button.editar { color: #4a90e2; }
+.icon-button.ver    { color: #50b96e; }
+.icon-button.eliminar { color: #e25d5d; }
+
+
+

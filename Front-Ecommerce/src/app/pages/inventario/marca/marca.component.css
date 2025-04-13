@@ -1,42 +1,69 @@
-.marca {
-    font-family: 'Segoe UI', sans-serif;
-    background: #fdfdfd;
+.contenedor-marca {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #fff;
     padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
   }
   
-  .marca h2 {
-    margin-bottom: 12px;
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .formulario {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
   }
   
   input {
-    width: calc(100% - 90px);
+    flex: 1;
     padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
     border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
   }
   
   button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
     background-color: #4a90e2;
     color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
   }
   
   button:hover {
     background-color: #3366cc;
   }
   
-  .lista {
-    margin-top: 16px;
-    padding-left: 16px;
+  .tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
   }
   
-  .lista li {
-    margin: 4px 0;
+  .tabla th,
+  .tabla td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
   }
+  
+  .tabla th {
+    background-color: #f4f4f4;
+  }
+  
+  .volver {
+    background-color: #ccc;
+    color: #000;
+  }
+  
+  .volver:hover {
+    background-color: #999;
+  }
+  

@@ -18,6 +18,9 @@ import { EditarClienteComponent } from './pages/clientes/editar-cliente/editar-c
 import { InventarioComponent } from './pages/inventario/inventario.component';
 import { ProductoCrearComponent } from './pages/inventario/producto-crear/producto-crear.component';
 import { EditarProductoComponent } from './pages/inventario/editar-producto/editar-producto.component';
+import { ReportesComponent } from './pages/reportes/reportes.component';
+import { MarcaComponent } from './pages/inventario/marca/marca.component';
+import { CategoriaComponent } from './pages/inventario/categoria/categoria.component';
 
 
 export const appConfig = {
@@ -45,7 +48,11 @@ export const appConfig = {
           { path: 'clientes/editar/:id', component: EditarClienteComponent},
           { path: 'inventario', component: InventarioComponent },
           { path: 'inventario/crear', component: ProductoCrearComponent },
-          { path: 'inventario/editar/:id', component: EditarProductoComponent }
+          { path: 'inventario/editar/:id', component: EditarProductoComponent },
+          { path: 'reportes', component: ReportesComponent },
+          { path: 'marcas', component: MarcaComponent },
+
+          { path: 'categorias', component: CategoriaComponent }
         ]
       }
     ])

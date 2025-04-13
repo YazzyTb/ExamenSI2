@@ -12,7 +12,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class EditarComponent {
   empleadoId: number = 0;
-  empleado = { nombre: '', correo: '', rol: '' };
+  empleado = {
+    nombre: '',
+    apellido: '',
+    correo: '',
+    rol: '',
+    estado: 'activo'
+  };
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
@@ -20,9 +26,9 @@ export class EditarComponent {
     this.empleadoId = Number(this.route.snapshot.paramMap.get('id'));
 
     const empleadosMock = [
-      { id: 1, nombre: 'Juan Perez', correo: 'juan@correo.com', rol: 'Administrador' },
-      { id: 2, nombre: 'Lucía Ríos', correo: 'lucia@correo.com', rol: 'Cajero' },
-      { id: 3, nombre: 'Carlos López', correo: 'carlos@correo.com', rol: 'Supervisor' }
+      { id: 1, nombre: 'Juan', apellido: 'Perez', correo: 'juan@correo.com', rol: 'Administrador', estado: 'activo' },
+      { id: 2, nombre: 'Lucía', apellido: 'Ríos', correo: 'lucia@correo.com', rol: 'Cajero', estado: 'inactivo' },
+      { id: 3, nombre: 'Carlos', apellido: 'López', correo: 'carlos@correo.com', rol: 'Supervisor', estado: 'activo' }
     ];
 
     const encontrado = empleadosMock.find(e => e.id === this.empleadoId);
@@ -33,6 +39,7 @@ export class EditarComponent {
 
   guardarCambios() {
     alert('Cambios guardados (simulado)');
+    this.router.navigate(['/empleados']);
   }
 
   volver() {

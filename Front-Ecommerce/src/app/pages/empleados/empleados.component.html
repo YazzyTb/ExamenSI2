@@ -1,37 +1,46 @@
-<div class="empleados">
-    <div class="encabezado-empleados">
-      <h2>Empleados</h2>
-      <a routerLink="/empleados/crear" class="nuevo-empleado">+ Nuevo empleado</a>
-    </div>
-  
-    <div class="table-wrapper">
-      <table class="empleados-table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Rol</th>
-            <th class="acciones">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let e of empleados">
-            <td>{{ e.nombre }}</td>
-            <td>{{ e.correo }}</td>
-            <td>{{ e.rol }}</td>
-            <td class="acciones">
-              <button class="icon-button editar" [routerLink]="['/empleados/editar', e.id]" title="Editar">
-                🖊️
-              </button>
-              <button class="icon-button ver" [routerLink]="['/empleados', e.id]" title="Ver">
-                👁️
-              </button>
-              <button class="icon-button eliminar" title="Eliminar">
-                🗑️
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="empleados-container">
+  <h2>👥 Gestión de Empleados</h2>
+
+  <div class="filtros">
+    <input type="text" [(ngModel)]="filtro" placeholder="🔍 Buscar empleado..." class="buscador" />
+    <select [(ngModel)]="estadoFiltro" class="filtro-select">
+      <option value="">Todos</option>
+      <option value="activo">Activo</option>
+      <option value="inactivo">Inactivo</option>
+    </select>
+    <button routerLink="/empleados/crear" class="btn-agregar">➕ Agregar empleado</button>
   </div>
+
+  <table class="tabla">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Rol</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of empleadosFiltrados">
+        <td>{{ e.id }}</td>
+        <td>{{ e.nombre }}</td>
+        <td>{{ e.apellido }}</td>
+        <td>{{ e.correo }}</td>
+        <td>{{ e.rol }}</td>
+        <td>
+          <span [ngClass]="{ 'activo': e.estado === 'activo', 'inactivo': e.estado === 'inactivo' }">
+            {{ e.estado }}
+          </span>
+        </td>
+        <td class="acciones">
+          <button class="icon-button ver" [routerLink]="['/empleados', e.id]" title="Ver">👁️</button>
+          <button class="icon-button editar" [routerLink]="['/empleados/editar', e.id]" title="Editar">🖊️</button>
+          <button class="icon-button eliminar" (click)="eliminarEmpleado(e.id)" title="Eliminar">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
