@@ -1,0 +1,26 @@
+<div class="contenedor-marca">
+    <h2>📦 Gestión de Marcas</h2>
+  
+    <form (ngSubmit)="agregarMarca()" class="formulario">
+      <input [(ngModel)]="nuevamarca" name="marca" placeholder="Nombre de la nueva marca" required />
+      <button type="submit">➕ Agregar</button>
+    </form>
+  
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let marca of marcas">
+          <td>{{ marca.id }}</td>
+          <td>{{ marca.nombre }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <button (click)="volver()" class="volver">🔙 Volver</button>
+  </div>
+  

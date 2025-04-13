@@ -1,11 +1,19 @@
-<div class="detalle-empleado" *ngIf="empleado">
-    <h2>Detalle del Empleado</h2>
+<div class="detalle-container">
+  <h2>📄 Detalles del Empleado</h2>
+
+  <div class="detalle-box">
+    <p><strong>ID:</strong> {{ empleado.id }}</p>
     <p><strong>Nombre:</strong> {{ empleado.nombre }}</p>
+    <p><strong>Apellido:</strong> {{ empleado.apellido }}</p>
     <p><strong>Correo:</strong> {{ empleado.correo }}</p>
     <p><strong>Rol:</strong> {{ empleado.rol }}</p>
+    <p>
+      <strong>Estado:</strong>
+      <span [ngClass]="{ 'activo': empleado.estado === 'activo', 'inactivo': empleado.estado === 'inactivo' }">
+        {{ empleado.estado }}
+      </span>
+    </p>
   </div>
-  
-  <div *ngIf="!empleado">
-    <p>Empleado no encontrado.</p>
-  </div>
-  
+
+  <button class="volver" (click)="volver()">🔙 Volver</button>
+</div>
