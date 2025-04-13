@@ -1,7 +1,4 @@
-// src/environments/environment.ts
-
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:5000/api'  // ⚙️ Cambia esto según la ruta base del backend Flask
-  };
-  
+    apiUrl: 'http://localhost:5000',
+}

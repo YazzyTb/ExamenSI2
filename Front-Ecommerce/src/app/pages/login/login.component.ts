@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,15 +15,20 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
-    if (this.email === 'admin@admin.com' && this.password === '1234') {
-      alert('¡Inicio de sesión exitoso!');
-      this.router.navigate(['/bitacora']);
-    } else {
-      alert('Credenciales inválidas');
-    }
+    this.authService.login(this.email, this.password).subscribe({
+      next: (res) => {
+        this.authService.guardarToken(res.token);
+        alert('¡Inicio de sesión exitoso!');
+        this.router.navigate(['/bitacora']);
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Credenciales inválidas');
+      }
+    });
   }
 }
 

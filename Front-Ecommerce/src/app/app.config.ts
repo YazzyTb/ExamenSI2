@@ -21,10 +21,12 @@ import { EditarProductoComponent } from './pages/inventario/editar-producto/edit
 import { ReportesComponent } from './pages/reportes/reportes.component';
 import { MarcaComponent } from './pages/inventario/marca/marca.component';
 import { CategoriaComponent } from './pages/inventario/categoria/categoria.component';
-
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 export const appConfig = {
   providers: [
+    provideHttpClient(),{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     provideRouter([
       { path: '', component: LoginComponent },
       {

@@ -5,7 +5,7 @@ import { NgIf, NgClass } from '@angular/common';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterModule, NgIf, NgClass],
+  imports: [RouterModule, NgIf],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
@@ -14,7 +14,8 @@ export class SidebarComponent {
 
   dropdowns: { [key: string]: boolean } = {
     empleados: false,
-    inventario: false
+    inventario: false,
+    reportes: false
   };
 
   constructor(private router: Router) {}
