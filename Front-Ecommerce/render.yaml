@@ -4,8 +4,6 @@ services:
     runtime: node
     buildCommand: npm install && npm run build:ssr
     startCommand: node server.js
-    buildCommandPath: Front-Ecommerce
-    rootDir: Front-Ecommerce
     env: node
     plan: free
     autoDeploy: true
