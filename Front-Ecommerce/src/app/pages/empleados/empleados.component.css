@@ -1,107 +1,127 @@
 .empleados-container {
-  max-width: 1000px;
-  margin: 30px auto;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 25px;
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
   font-family: 'Segoe UI', sans-serif;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 22px;
+  color: #333;
 }
 
 .filtros {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 10px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.buscador {
-  flex: 1;
-  min-width: 200px;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-}
-
+.buscador,
 .filtro-select {
   padding: 8px;
-  border-radius: 6px;
+  font-size: 14px;
   border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
+  min-width: 200px;
 }
 
 .btn-agregar {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  background-color: #22abea;
+  background-color: #4a90e2;
   color: white;
   font-weight: bold;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
   white-space: nowrap;
 }
 
 .btn-agregar:hover {
-  background-color: #07307a;
+  background-color: #357ac9;
 }
 
 .tabla {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  font-size: 14px;
+}
+
+.tabla thead {
+  background-color: #f4f4f4;
 }
 
 .tabla th,
 .tabla td {
   padding: 10px;
-  border: 1px solid #ccc;
   text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-.tabla th {
-  background-color: #f4f4f4;
+.tabla tr:hover {
+  background-color: #f9f9f9;
 }
 
-.activo {
-  color: green;
+span.activo {
+  color: #2e7d32;
   font-weight: bold;
-  text-transform: capitalize;
 }
 
-.inactivo {
-  color: red;
+span.inactivo {
+  color: #d32f2f;
   font-weight: bold;
-  text-transform: capitalize;
 }
 
 .acciones {
-  text-align: center;
-  white-space: nowrap;
+  display: flex;
+  gap: 8px;
 }
 
 .icon-button {
   background: none;
   border: none;
-  cursor: pointer;
   font-size: 18px;
-  margin: 0 5px;
-  transition: transform 0.2s;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .icon-button:hover {
   transform: scale(1.2);
 }
 
-.icon-button.editar { color: #4a90e2; }
-.icon-button.ver    { color: #50b96e; }
-.icon-button.eliminar { color: #e25d5d; }
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  gap: 10px;
+  font-size: 14px;
+}
 
+.paginacion button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
 
+.paginacion button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.paginacion span {
+  font-weight: 500;
+  color: #444;
+}
 

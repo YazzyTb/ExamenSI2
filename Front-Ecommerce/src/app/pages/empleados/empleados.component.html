@@ -27,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let e of empleadosFiltrados">
+      <tr *ngFor="let e of empleadosPaginados">
         <td>{{ e.codigo }}</td> <!-- Era e.id -->
         <td>{{ e.nombre }}</td>
         <td>{{ e.apellido }}</td>
@@ -50,4 +50,11 @@
       </tr>
     </tbody>
   </table>
+  <!-- Paginación -->
+<div class="paginacion">
+  <button (click)="cambiarPagina(-1)" [disabled]="paginaActual === 1">⬅️ Anterior</button>
+  <span>Página {{ paginaActual }} de {{ totalPaginas }}</span>
+  <button (click)="cambiarPagina(1)" [disabled]="paginaActual === totalPaginas">Siguiente ➡️</button>
+</div>
+
 </div>

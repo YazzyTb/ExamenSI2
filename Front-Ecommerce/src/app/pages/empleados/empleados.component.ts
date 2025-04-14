@@ -16,7 +16,7 @@ export class EmpleadosComponent implements OnInit {
   estadoFiltro: string = '';
   empleados: any[] = [];
 
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
     this.cargarEmpleados();
@@ -52,7 +52,7 @@ export class EmpleadosComponent implements OnInit {
       });
     }
   }
-  
+
   get empleadosFiltrados() {
     return this.empleados
       .filter(e =>
@@ -62,5 +62,24 @@ export class EmpleadosComponent implements OnInit {
       )
       .filter(e => !this.estadoFiltro || e.estado?.toLowerCase() === this.estadoFiltro.toLowerCase());
   }
-  
+  // Paginación
+  paginaActual = 1;
+  itemsPorPagina = 5;
+
+  get empleadosPaginados() {
+    const inicio = (this.paginaActual - 1) * this.itemsPorPagina;
+    return this.empleadosFiltrados.slice(inicio, inicio + this.itemsPorPagina);
+  }
+
+  get totalPaginas() {
+    return Math.ceil(this.empleadosFiltrados.length / this.itemsPorPagina);
+  }
+
+  cambiarPagina(direccion: number) {
+    const nueva = this.paginaActual + direccion;
+    if (nueva >= 1 && nueva <= this.totalPaginas) {
+      this.paginaActual = nueva;
+    }
+  }
+
 }
