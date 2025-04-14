@@ -15,7 +15,7 @@ export class EmpleadosComponent implements OnInit {
   filtro: string = '';
   estadoFiltro: string = '';
   empleados: any[] = [];
-
+  cargando = true;
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {

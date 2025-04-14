@@ -23,9 +23,10 @@ import { MarcaComponent } from './pages/inventario/marca/marca.component';
 import { CategoriaComponent } from './pages/inventario/categoria/categoria.component';
 import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { provideServerRendering } from '@angular/platform-server';
 
 export const appConfig = {
-  providers: [
+  providers: [ 
     provideHttpClient(),{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     provideRouter([
       { path: '', component: LoginComponent },
