@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
   selector: 'app-empleado-editar',
@@ -10,36 +11,63 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './editar.component.html',
   styleUrls: ['./editar.component.css']
 })
-export class EditarComponent {
+export class EditarComponent implements OnInit {
   empleadoId: number = 0;
-  empleado = {
+  empleado: any = {
     nombre: '',
     apellido: '',
-    correo: '',
-    rol: '',
+    gmail: '',
+    telefono: '',
+    rol_id: null,
     estado: 'activo'
   };
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  roles: any[] = [];
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private usuarioService: UsuarioService
+  ) {}
 
   ngOnInit() {
     this.empleadoId = Number(this.route.snapshot.paramMap.get('id'));
 
-    const empleadosMock = [
-      { id: 1, nombre: 'Juan', apellido: 'Perez', correo: 'juan@correo.com', rol: 'Administrador', estado: 'activo' },
-      { id: 2, nombre: 'Lucía', apellido: 'Ríos', correo: 'lucia@correo.com', rol: 'Cajero', estado: 'inactivo' },
-      { id: 3, nombre: 'Carlos', apellido: 'López', correo: 'carlos@correo.com', rol: 'Supervisor', estado: 'activo' }
-    ];
+    this.usuarioService.getUsuario(this.empleadoId).subscribe({
+      next: (res) => {
+        this.empleado = {
+          nombre: res.nombre,
+          apellido: res.apellido,
+          gmail: res.gmail,
+          telefono: res.telefono,
+          rol_id: res.rol_id,
+          estado: res.estado?.toLowerCase() || 'activo'
+        };
+      },
+      error: (err) => {
+        console.error('Error al cargar empleado:', err);
+        alert('No se pudo cargar el empleado');
+        this.router.navigate(['/empleados']);
+      }
+    });
 
-    const encontrado = empleadosMock.find(e => e.id === this.empleadoId);
-    if (encontrado) {
-      this.empleado = { ...encontrado };
-    }
+    this.usuarioService.obtenerRoles().subscribe({
+      next: (res) => this.roles = res,
+      error: () => alert('No se pudieron cargar los roles')
+    });
   }
 
   guardarCambios() {
-    alert('Cambios guardados (simulado)');
-    this.router.navigate(['/empleados']);
+    this.usuarioService.editarUsuario(this.empleadoId, this.empleado).subscribe({
+      next: () => {
+        alert('Cambios guardados correctamente');
+        this.router.navigate(['/empleados']);
+      },
+      error: (err) => {
+        console.error('Error al guardar cambios:', err);
+        alert('No se pudieron guardar los cambios');
+      }
+    });
   }
 
   volver() {

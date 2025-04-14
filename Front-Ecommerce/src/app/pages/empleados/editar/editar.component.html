@@ -9,10 +9,15 @@
     <input [(ngModel)]="empleado.apellido" name="apellido" required />
 
     <label>Correo:</label>
-    <input [(ngModel)]="empleado.correo" name="correo" type="email" required />
+    <input [(ngModel)]="empleado.gmail" name="gmail" type="email" required />
+
+    <label>Telefono:</label>
+    <input [(ngModel)]="empleado.telefono" name="telefono"  required />
 
     <label>Rol:</label>
-    <input [(ngModel)]="empleado.rol" name="rol" required />
+    <select [(ngModel)]="empleado.rol_id" name="rol_id" required>
+      <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.nombre }}</option>
+    </select>
 
     <label>Estado:</label>
     <select [(ngModel)]="empleado.estado" name="estado" required>
