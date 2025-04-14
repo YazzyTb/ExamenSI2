@@ -81,4 +81,8 @@ export class UsuarioService {
       }
     });
   }
+  validarCorreo(gmail: string) {
+    return this.http.post<{ existe: boolean }>(`${this.apiUrl}/usuarios/validar-correo`, { gmail });
+  }
+  
 }
