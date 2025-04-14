@@ -3,7 +3,9 @@ services:
     name: angular-ecommerce-ssr
     runtime: node
     buildCommand: npm install && npm run build:ssr
-    startCommand: npm start
+    startCommand: node server.js
+    buildCommandPath: Front-Ecommerce
+    rootDir: Front-Ecommerce
     env: node
     plan: free
     autoDeploy: true
